@@ -1,0 +1,157 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+
+void liczbyPierwsze()
+{
+    int n, i, p, lp;
+    bool t;
+    cout << "Ile chcesz zobaczyc liczb pierwszych ? " << endl;
+    cin >> n;
+
+    lp = 0;
+    p = 2;
+
+    while (lp < n)
+    {
+        t = true;
+        for (i = 2; i < p; i++)
+            if (p % i == 0)
+            {
+                t = false;
+                break;
+            }
+
+        if (t)
+        {
+            cout << p << " ";
+            lp++;
+        }
+        p++;
+    }
+
+    cout << endl;
+};
+void sredniaLiczb()
+{
+    int a, b, c;
+    cout << "Wprowadz liczbe" << endl;
+    cin >> a;
+    cout << "Wprowadz kolejna liczbe" << endl;
+    cin >> b;
+    cout << "Wprowadz kolejna liczbe" << endl;
+    cin >> c;
+    cout << "Śrdenia twoich liczb to :" << " " << (a + b + c) / 3 << endl;
+
+};
+void wypelnienieTablicy()
+{
+    int x;
+    srand(time(nullptr));
+    cout << "Podaj rozmiar tablicy:  "; cin >> x;
+    int* tablica = new int[x];
+
+
+    for (int i = 0; i < x; i++)
+    {
+        tablica[i] = rand() % 100;
+        cout << tablica[i] << endl;
+
+    }
+
+}
+void WypisywanieTablicy()
+{
+    cout << "Ile elementow ma miec tablica?" << endl;
+    int j;
+    cin >> j;
+    int* tab2 = new int[j];
+
+    cout << "Wprowadz dane do tablicy: " << endl;
+    for (int i = 0; i < j; i++)
+    {
+        cin >> tab2[i];
+
+    }
+
+    cout << "Liczby z tablicy to: " << endl;
+    for (int i = 0; i < j; i++)
+    {
+        cout << tab2[i]<<" ";
+
+    }
+
+}
+
+
+void sortowanie_babelkowe()
+{
+
+    cout << "Ile liczb bedziesz chcial posortowac? ";
+    int k;
+    cin >> k;
+    int* tab2 = new int[k];
+
+    cout << "Wprowadz dane do tablicy: " << endl;
+
+    for (int i = 0; i < k; i++)
+    {
+        cin >> tab2[i];
+    }
+
+
+    for (int i = 0;i < k;i++)
+        for (int j = 1;j < k - i;j++) //pętla wewnętrzna
+            if (tab2[j - 1] > tab2[j])
+
+                swap(tab2[j - 1], tab2[j]); //zamiana miejscami
+
+    cout << "Liczby z tablicy to: " << endl;
+    for (int i = 0; i < k; i++)
+    {
+        cout << tab2[i] << " ";
+
+    }
+}
+
+;
+
+int main()
+{
+    int wybor;
+
+
+    cout << "Wybierz co chcesz zrobic(podaj liczbe):" << endl;
+
+    cout << "1. Wypisac liczby pierwsze" << endl;
+    cout << "2. Obliczyc srednia 3 liczb" << endl;
+    cout << "3. Wypelnic tablice losowymi elementami" << endl;
+    cout << "4. Wprowadzanie danych do tablicy X elementowej i wypisanie" << endl;
+    cout << "5. Sortowanie babelkowe tablicy X elementowej" << endl;
+
+    cin >> wybor;
+    switch (wybor)
+    {
+    case 1:
+        liczbyPierwsze();
+        break;
+
+    case 2:
+        sredniaLiczb();
+        break;
+    case 3: 
+        wypelnienieTablicy();
+        break;
+    case 4:
+        WypisywanieTablicy();
+        break;
+    case 5:
+        sortowanie_babelkowe();
+        break;
+    }
+
+
+    return 0;
+}
