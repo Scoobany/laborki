@@ -3,87 +3,90 @@
 #include <ctime>
 using namespace std;
 
-
-void liczbyPierwsze()
+class ZadanieNa3
 {
-    int n, i, p, lp;
-    bool t;
-    cout << "Ile chcesz zobaczyc liczb pierwszych ? " << endl;
-    cin >> n;
+public:
 
-    lp = 0;
-    p = 2;
-
-    while (lp < n)
+    void liczbyPierwsze()
     {
-        t = true;
-        for (i = 2; i < p; i++)
-            if (p % i == 0)
-            {
-                t = false;
-                break;
-            }
+        int n, i, p, lp;
+        bool t;
+        cout << "Ile chcesz zobaczyc liczb pierwszych ? " << endl;
+        cin >> n;
 
-        if (t)
+        lp = 0;
+        p = 2;
+
+        while (lp < n)
         {
-            cout << p << " ";
-            lp++;
+            t = true;
+            for (i = 2; i < p; i++)
+                if (p % i == 0)
+                {
+                    t = false;
+                    break;
+                }
+
+            if (t)
+            {
+                cout << p << " ";
+                lp++;
+            }
+            p++;
         }
-        p++;
-    }
 
-    cout << endl;
-};
-void sredniaLiczb()
-{
-    int a, b, c;
-    cout << "Wprowadz liczbe" << endl;
-    cin >> a;
-    cout << "Wprowadz kolejna liczbe" << endl;
-    cin >> b;
-    cout << "Wprowadz kolejna liczbe" << endl;
-    cin >> c;
-    cout << "Śrdenia twoich liczb to :" << " " << (a + b + c) / 3 << endl;
-
-};
-void wypelnienieTablicy()
-{
-    int x;
-    srand(time(nullptr));
-    cout << "Podaj rozmiar tablicy:  "; cin >> x;
-    int* tablica = new int[x];
-
-
-    for (int i = 0; i < x; i++)
+        cout << endl;
+    };
+    void sredniaLiczb()
     {
-        tablica[i] = rand() % 100;
-        cout << tablica[i] << endl;
+        int a, b, c;
+        cout << "Wprowadz liczbe" << endl;
+        cin >> a;
+        cout << "Wprowadz kolejna liczbe" << endl;
+        cin >> b;
+        cout << "Wprowadz kolejna liczbe" << endl;
+        cin >> c;
+        cout << "Śrdenia twoich liczb to :" << " " << (a + b + c) / 3 << endl;
 
-    }
-
-}
-void WypisywanieTablicy()
-{
-    cout << "Ile elementow ma miec tablica?" << endl;
-    int j;
-    cin >> j;
-    int* tab2 = new int[j];
-
-    cout << "Wprowadz dane do tablicy: " << endl;
-    for (int i = 0; i < j; i++)
+    };
+    void wypelnienieTablicy()
     {
-        cin >> tab2[i];
+        int x;
+        srand(time(nullptr));
+        cout << "Podaj rozmiar tablicy:  "; cin >> x;
+        int* tablica = new int[x];
+
+
+        for (int i = 0; i < x; i++)
+        {
+            tablica[i] = rand() % 100;
+            cout << tablica[i] << endl;
+
+        }
 
     }
-
-    cout << "Liczby z tablicy to: " << endl;
-    for (int i = 0; i < j; i++)
+    void WypisywanieTablicy()
     {
-        cout << tab2[i]<<" ";
+        cout << "Ile elementow ma miec tablica?" << endl;
+        int j;
+        cin >> j;
+        int* tab2 = new int[j];
+
+        cout << "Wprowadz dane do tablicy: " << endl;
+        for (int i = 0; i < j; i++)
+        {
+            cin >> tab2[i];
+
+        }
+
+        cout << "Liczby z tablicy to: " << endl;
+        for (int i = 0; i < j; i++)
+        {
+            cout << tab2[i] << " ";
+
+        }
 
     }
-
-}
 
 
 void sortowanie_babelkowe()
@@ -115,13 +118,13 @@ void sortowanie_babelkowe()
 
     }
 }
+};
 
-;
 
 int main()
 {
     int wybor;
-
+    ZadanieNa3 zadanieNa3;
 
     cout << "Wybierz co chcesz zrobic(podaj liczbe):" << endl;
 
@@ -135,20 +138,20 @@ int main()
     switch (wybor)
     {
     case 1:
-        liczbyPierwsze();
+        zadanieNa3.liczbyPierwsze();
         break;
 
     case 2:
-        sredniaLiczb();
+        zadanieNa3.sredniaLiczb();
         break;
     case 3: 
-        wypelnienieTablicy();
+        zadanieNa3.wypelnienieTablicy();
         break;
     case 4:
-        WypisywanieTablicy();
+        zadanieNa3.WypisywanieTablicy();
         break;
     case 5:
-        sortowanie_babelkowe();
+        zadanieNa3.sortowanie_babelkowe();
         break;
     }
 
