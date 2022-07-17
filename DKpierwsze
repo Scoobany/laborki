@@ -1,0 +1,60 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+
+
+int n, i, p, lp, x;
+bool t;
+
+int e;
+	
+	
+
+int main()
+{
+	
+
+	
+	cout << "Podaj rozmiar tablicy:  "; cin >> n;
+	int* tablica = new int[n];
+
+
+	for (int i = 0; i < n; i++)
+	{
+		while (lp < n)
+		{
+			t = true;
+			for (i = 2; i < p; i++)
+				if (p % i == 0)
+				{
+					t = false;
+					break;
+				}
+
+			if (t)
+			{
+				cout << p << " "<<endl;
+				lp++;
+			}
+			p++;
+			
+		}
+		cout << "Jaki element chcesz wypisac ?" << endl;
+		cin >> e;
+		cout << "To jest " << e << " element tablicy -> " << tablica[e] << endl;
+	}
+	
+	
+	
+	cout << "Wypisywanie sredniej 3 liczb" << endl;
+		int a, b, c;
+		cout << "Wprowadz liczbe" << endl;
+		cin >> a;
+		cout << "Wprowadz kolejna liczbe" << endl;
+		cin >> b;
+		cout << "Wprowadz kolejna liczbe" << endl;
+		cin >> c;
+		cout << "Srdenia twoich liczb to :" << " " << (a + b + c) / 3 << endl;
+}
